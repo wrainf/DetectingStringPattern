@@ -3,14 +3,15 @@ def detect_pattern(s1: str, s2: str) -> bool:
         return False
 
     combine = list(zip(s1,s2))
-    
+    res = True
+
     for i in range (len(combine)):
         for j in range(i+1,len(combine)):
             if(combine[i][0] == combine[j][0]):
-                return (combine[i][1] == combine[j][1])
+                res = res and (combine[i][1] == combine[j][1])
             elif(combine[i][1] == combine[j][1]):
-                return(combine[i][0] == combine[j][0])
+                res = res and (combine[i][0] == combine[j][0])
+    
+    return res
 
-    return True
-
-print(detect_pattern("abb", "aaa"))
+print(detect_pattern("aaasssiiii","gggdddfffh"))
